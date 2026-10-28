@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday Scrapbook</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+:root{--red:#d6182f;--deep:#9c0f22;--cream:#fff4dc;--ink:#5a0d18;--pink:#ffc9d4;--mint:#c8f0dc;--sun:#ffe48a;--sky:#cfe6ff;--lav:#e3d4ff;color-scheme:only light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;overflow:hidden;background:var(--red);font-family:'Patrick Hand','Comic Sans MS',cursive;color:var(--ink);touch-action:manipulation}
+body{background:radial-gradient(circle at 50% 30%,#f2394c 0,var(--red) 45%,var(--deep) 100%)}
+h1,h2,h3,.hand{font-family:'Caveat Brush','Patrick Hand',cursive;font-weight:400;margin:0}
+.pg{position:absolute;inset:0;padding:env(safe-area-inset-top,0px) 14px 70px;overflow-y:auto;overflow-x:hidden;display:none;text-align:center;color:var(--cream)}
+.pg.on{display:block;animation:pgin .5s ease both}
+@keyframes pgin{from{opacity:0;transform:translateY(24px) rotate(-1deg)}}
+.fx{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+.fx i{position:absolute;font-style:normal;will-change:transform}
+.up{animation:up linear infinite}@keyframes up{from{transform:translateY(0)}to{transform:translateY(-120vh) rotate(20deg)}}
+.dn{animation:dn linear infinite}@keyframes dn{from{transform:translateY(-10vh) rotate(0)}to{transform:translateY(110vh) rotate(540deg)}}
+.pg>*{position:relative;z-index:2}
+.bunt{display:flex;justify-content:center;margin:0 -14px;height:44px;overflow:hidden;filter:drop-shadow(0 3px 2px #0004)}
+.bunt b{width:36px;height:42px;flex:none;clip-path:polygon(0 0,100% 0,50% 100%)}
+.title{font-size:clamp(38px,12.5vw,64px);line-height:1;margin-top:22px;text-shadow:0 3px 0 var(--deep)}
+.title span{display:inline-block;animation:wave 1.6s ease-in-out infinite}
+@keyframes wave{50%{transform:translateY(-10px) rotate(4deg)}}
+.name{display:inline-block;margin:10px 0;font-size:clamp(54px,19vw,96px);padding:0 18px;color:#fff;background:linear-gradient(180deg,#fff 0,#ffd0d6 40%,#ff7a8c 55%,#ffd0d6 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 4px 0 var(--deep));animation:wave 2s ease-in-out infinite}
+.btn{font:inherit;font-family:'Caveat Brush',cursive;font-size:24px;color:var(--ink);background:linear-gradient(180deg,#fff7c4,var(--sun) 55%,#ffc43a);border:3px solid var(--cream);border-radius:40px;padding:12px 26px;box-shadow:0 6px 0 var(--deep),0 10px 18px #0005,inset 0 4px 6px #fff9;cursor:pointer;min-height:48px}
+.btn:active{transform:translateY(4px);box-shadow:0 2px 0 var(--deep)}
+.pulse{animation:pul 1.8s ease-in-out infinite}@keyframes pul{50%{transform:scale(1.07)}}
+.small{font-size:16px;background:#0002;color:var(--cream);border:2px dashed var(--cream);border-radius:20px;padding:8px 14px;font-family:inherit;cursor:pointer;min-height:44px}
+.stk{position:absolute;font-size:34px;filter:drop-shadow(2px 3px 0 #0005);z-index:2}
+.wig{animation:wig 1s ease-in-out infinite;border:0;background:none;cursor:pointer;padding:6px}@keyframes wig{25%{transform:rotate(-12deg)}75%{transform:rotate(12deg)}}
+.stamp{position:fixed;font-size:56px;opacity:.85;pointer-events:none;z-index:50;animation:stm .6s ease-out both}@keyframes stm{from{transform:scale(3) rotate(20deg);opacity:0}}
+.big{position:fixed;inset:0;display:grid;place-items:center;z-index:60;pointer-events:none}
+.big div{font-family:'Caveat Brush';font-size:clamp(50px,18vw,90px);color:var(--cream);border:8px double var(--cream);padding:6px 24px;border-radius:20px;transform:rotate(-8deg);background:#d6182fcc;animation:stm .5s ease-out both}
+.pop{position:fixed;top:22%;left:0;right:0;z-index:61;font-family:'Caveat Brush';font-size:60px;color:var(--sun);text-shadow:0 4px 0 var(--deep);pointer-events:none;animation:stm .5s ease-out both}
+.shake{animation:shk .4s}@keyframes shk{20%{transform:translate(-8px,4px)}40%{transform:translate(8px,-4px)}60%{transform:translate(-5px,3px)}}
+.nav{position:fixed;left:0;right:0;bottom:0;padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px));display:flex;justify-content:center;gap:8px;z-index:70;background:linear-gradient(transparent,#7a0818aa)}
+.nav button{width:36px;height:36px;border-radius:50%;border:2px solid var(--cream);background:var(--red);color:var(--cream);font:inherit;font-size:16px}
+.nav button.on{background:var(--cream);color:var(--red)}
+.snd{position:fixed;top:calc(8px + env(safe-area-inset-top,0px));right:8px;z-index:70}
+.paper{background:var(--cream);color:var(--ink);box-shadow:0 5px 12px #0006;border-radius:3px 9px 4px 11px;padding:14px;position:relative}
+.tape{position:absolute;top:-10px;left:50%;width:70px;height:20px;margin-left:-35px;background:#ffffff99;border:1px dashed #fff;transform:rotate(-4deg)}
+/* page 2 */
+.cakebox{position:relative;width:260px;height:250px;margin:6px auto;background:radial-gradient(ellipse at 50% 0,#fff6 0,#fff0 70%)}
+.half{position:absolute;inset:0;transition:transform 1s cubic-bezier(.6,0,.3,1)}
+.flame{transform-origin:50% 100%;animation:fl .25s infinite alternate}@keyframes fl{to{transform:scale(1.15,.9) rotate(4deg)}}
+.out .flame{animation:none;opacity:0;transition:opacity .4s}
+.smoke{position:absolute;font-size:22px;opacity:0;animation:sm 2s ease-out forwards;pointer-events:none}@keyframes sm{20%{opacity:.8}to{transform:translateY(-70px) scale(2);opacity:0}}
+textarea{width:100%;font:inherit;font-size:20px;border:2px dashed var(--red);background:#fffaf0;border-radius:6px;padding:8px;color:var(--ink);resize:none}
+.pstar{position:fixed;font-size:46px;z-index:55;pointer-events:none;animation:fly 2.4s ease-in forwards}@keyframes fly{to{transform:translateY(-90vh) rotate(720deg) scale(.4);opacity:0}}
+.knife{position:absolute;left:50%;top:-30px;font-size:44px;margin-left:-22px;touch-action:none;z-index:6;cursor:grab}
+.cutline{position:absolute;left:50%;width:3px;background:#fff;top:0;height:0;z-index:5;box-shadow:0 0 6px #fff}
+.wob{animation:wob .5s}@keyframes wob{25%{transform:rotate(-5deg)}75%{transform:rotate(5deg)}}
+/* letter */
+.letter{max-width:340px;margin:14px auto;cursor:pointer}
+.lbody{max-height:0;overflow:hidden;transition:max-height 1.2s ease;text-align:left;font-size:22px;line-height:1.5}
+.open .lbody{max-height:6000px}
+.lbody p{opacity:0;transform:translateY(8px);transition:.5s;margin:.5em 0}
+.open .lbody p{opacity:1;transform:none}
+.letter .paper{border:4px solid var(--red);background:var(--cream)}
+.letter .paper:after{content:"";position:absolute;right:0;bottom:0;border:14px solid;border-color:#e8d3a6 var(--red) var(--red) #e8d3a6;}
+/* scrapbook */
+.sb{display:grid;grid-template-columns:1fr 1fr;gap:18px 14px;max-width:380px;margin:12px auto}
+.sb .paper{min-height:96px;display:grid;place-items:center;cursor:pointer;font-size:19px;border:0;font-family:inherit;color:var(--ink)}
+.sb .c1{background:var(--pink);transform:rotate(-2.5deg)}.sb .c2{background:var(--mint);transform:rotate(2deg)}.sb .c3{background:var(--sky);transform:rotate(1.5deg)}.sb .c4{background:var(--lav);transform:rotate(-2deg)}.sb .c5{background:var(--sun);transform:rotate(2.5deg)}
+.ori{font-size:54px;transition:transform .5s}.ori.o{transform:rotateY(180deg) scale(1.2)}
+.tabw{position:relative;overflow:hidden;background:#b3101f;border-radius:6px}
+.tabn{background:var(--cream);padding:10px;transition:transform .6s;transform:translateX(-62%);border-radius:4px;color:var(--ink)}
+.tabw.pulled .tabn{transform:none}
+.fold{position:relative;overflow:hidden}
+.fold:before{content:"";position:absolute;right:0;top:0;border:20px solid;border-color:#fff #fff #e8c7cf #e8c7cf;transition:.5s;transform-origin:100% 0;box-shadow:-3px 3px 4px #0003}
+.fold.lift:before{transform:scale(3.2)}
+.layers{grid-column:1/-1}
+.layers .paper{display:block;text-align:center;background:var(--cream);transition:.5s}
+.mod{position:fixed;inset:0;z-index:80;background:#5a0d18cc;display:grid;place-items:center;padding:20px;overflow:auto}
+.mod .paper{white-space:pre-line;width:100%;max-width:360px;max-height:86vh;overflow:auto;animation:unf .55s cubic-bezier(.3,1.4,.5,1) both;transform-origin:top center;text-align:left;font-size:21px;line-height:1.35}
+@keyframes unf{from{transform:perspective(600px) rotateX(-80deg) scale(.8);opacity:0}}
+.mod .x{float:right;font-size:26px;background:none;border:0;color:var(--red);font-family:inherit;min-height:44px;min-width:44px}
+/* memories */
+.mem{background:var(--cream);color:var(--ink);padding:10px 10px 14px;box-shadow:0 5px 10px #0006;border:0;font:inherit;display:block;width:100%;text-align:center;cursor:pointer}
+.ph{height:80px;background:repeating-linear-gradient(45deg,#f6d3d9,#f6d3d9 8px,#fbe5e8 8px,#fbe5e8 16px);display:grid;place-items:center;font-size:14px;margin-bottom:6px}
+[contenteditable]{outline:2px dashed #d6182f55;border-radius:4px;padding:2px 4px;min-height:1.4em}
+.tr{margin:0;padding-left:20px;font-size:19px}
+.tape2{background:#fff;color:var(--ink);border-radius:4px 14px 4px 4px;padding:8px}
+/* envelopes */
+.env{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,auto);gap:14px 8px;max-width:380px;margin:12px auto}
+.ev{aspect-ratio:1/1;border:0;position:relative;background:linear-gradient(135deg,var(--cream) 50%,#f5dfc0);color:var(--ink);box-shadow:0 4px 8px #0006;font:inherit;font-size:12px;line-height:1.05;padding:14px 2px 4px;cursor:pointer;border-radius:3px}
+.ev:before{content:"";position:absolute;inset:0 0 40% 0;background:#ead2a8;clip-path:polygon(0 0,100% 0,50% 100%);transition:transform .4s;transform-origin:top}
+.ev:active:before{transform:rotateX(180deg)}
+.ev:after{content:"♥";position:absolute;left:50%;top:38%;margin-left:-8px;color:var(--red);font-size:16px}
+.ev span{position:relative;z-index:2;display:block;margin-top:28px}
+.bq{border:0;font:inherit;background:linear-gradient(180deg,var(--pink),#fff4dc);color:var(--ink);box-shadow:0 4px 8px #0006;border-radius:12px 12px 8px 8px;padding:10px 6px 8px;cursor:pointer;min-height:130px;display:grid;place-items:center;font-size:19px;position:relative}
+.bq .fl{font-size:58px;line-height:1;display:block;transition:transform .35s;transform-origin:50% 100%;filter:drop-shadow(0 3px 2px #0004)}
+.bq:active .fl{transform:rotate(-10deg) scale(1.15)}
+.bq:after{content:"🎀";position:absolute;right:6px;top:4px;font-size:18px}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.fx{display:none}}
+</style></head><body>
+<div class="fx" id="fx"></div>
+<button class="small snd" id="snd">tap to turn on sound</button>
+<div id="app"></div>
+<div class="nav" id="nav"></div>
+<script>
+/* ===== EDIT ME: all personal text lives here ===== */
+const D={
+ name:"mumma",
+ letter:[`happy birthday mumma ❤️`,
+`i genuinely have no clue what to even write in this note because you mean everything to me, and no words could ever do justice to your presence and importance in my life. i miss you every single day in hostel. in every little moment, all i crave is just the slightest bit of your presence, which is why i end up calling you even in the 30-second breaks i get. sometimes, all i need is to hear your voice or tell you the most random things about my day to feel a little closer to home. i miss yapping with you more than i can ever explain.`,
+`thankyou for shaping me into the person i am today and for being there through every breakdown, every little happiness, every achievement and every phase of my life. you have been my constant through it all, and i genuinely don't know what i would do without you. you are the most beautiful, humble and kindest person i know, and i honestly feel like you are the strongest one among all of us. the way you have endured so much, survived through every difficulty and still continued to be the person you are inspires me every single day. i hope you know how much strength it takes to be you, and how much i admire you for it.`,
+`one of the things i love most about you is the way you care for people. the way you are so thoughtful and considerate, the way you look after us despite everything you might be going through yourself, the way you love all my friends as your own, cook for them, make them feel at home and always go out of your way to make everyone feel welcome. your warmth and hospitality are things i have grown up watching, and i realise that so much of the sweetness i carry within me comes from you. you taught me to care for people, to be thoughtful, to make people feel loved and to always have room for others. i think a part of you will always live in the way i treat people, and that is one of the most beautiful things you could have ever given me.`,
+`and how do you even manage to understand me so effortlessly? sometimes, you can figure out what is wrong with me from just one sound, one look or the tiniest change in my voice. you just *know*. i don't even have to explain myself, and somehow, you understand things i cannot put into words myself. there is something so special about being understood like that, and i don't think i'll ever be able to express how grateful i am for it. no matter how far away i am, knowing that i have you to come back to makes everything feel a little less difficult.`,
+`i am so, so grateful to have been blessed with you as my mumma. and i'm sorry for all the times i've hurt you, upset you or made you feel otherwise. i promise it was never intentional, and you have never deserved any of it. sometimes i might not express my love for you in the best way, or i might take your presence for granted without even realising it, but please never doubt how much you mean to me. you are such a huge part of who i am, and there is so much of you in me that i hope i never lose.`,
+`i'm so sorry i can't be there with you physically today. if it weren't for my labs, i wouldn't have missed your birthday for the world. it genuinely hurts to not be home and celebrate you the way you deserve to be celebrated. i wish i could be there to hug you, sit with you, yap about absolutely nothing and just spend the day around you. hostel has made me realise that it's not even the big things i miss the most, it's all the little everyday moments with you that i never thought i'd miss this much.`,
+`i hope this year gives you all the happiness, peace, love and softness that you have given to everyone around you all your life. i hope life is kinder to you, that you get to do all the things that make you happy, and that you never have to question how loved and appreciated you are. you deserve so much more than i could ever give you, and if there's one thing i wish for, it's that i can make you as proud and happy as you have always made me.`,
+`i love you more than these words could ever explain, mumma. no matter how old i grow, how far away i go or how much life changes, i will always be your little girl who wants to tell you everything, call you for the smallest things and come running back to you at the end of the day. you will always be my home, my safest place and one of the biggest blessings of my life.`,
+`happy birthday once again, my mumma. i love you endlessly, and i wish i could be there to tell you all of this while holding you close. ❤️`],
+ stars:["Fun fact: [add a fun fact]","[An encouraging message]","Happy birthday, [NAME]!"],
+ tab:"[Hidden note: write something sweet here.]",
+ env4:"[A little message inside this envelope.]",
+ corner:"[Surprise under the corner! Add a doodle idea or a joke.]",
+ fold:["Layer 1: [a first little hint]","Layer 2: [a bit more…]","Layer 3: [almost there…]","[Your special birthday message goes here.]"],
+ mems:[{t:"[Date or title]",c:"[tiny caption]",i:"✦"},{t:"[Date or title]",c:"[tiny caption]",i:"✿"},{t:"[Date or title]",c:"[tiny caption]",i:"★"},{t:"[Date or title]",c:"[tiny caption]",i:"✎"}],
+ say:[
+  {o:"umm how do I say",m:"[A short, friendly, personal message.]"},
+  {o:"words feel less adequate always to describe you",m:"[A short, friendly, personal message.]"},
+  {o:"I don't know what to say🫠",m:"[A short, friendly, personal message.]"},
+  {o:"here's something I made for you...",m:"I made a playlist for you. Music can say moods and memories in ways ordinary words sometimes can’t. [Customise this intro.]"},
+  {o:"remember this?",m:"[Favourite moments, funny incidents, shared jokes or memorable conversations — add yours.]"},
+  {o:"equation of you",mix:1}],
+ playlistTitle:"equation of you",
+ playlistUrl:"https://open.spotify.com/playlist/5to3jKOG9aOhTG6YMXLuML?si=4e4326ed4ea4486a",
+ tracks:["[Track 1 — Artist]","[Track 2 — Artist]","[Track 3 — Artist]","[Track 4 — Artist]"],
+ open:[
+{n:"Nani",m:`🌷❤️ Happy 50th Birthday, my dearest daughter!\nWatching you grow into the beautiful, graceful, and compassionate woman you are today has been one of the greatest joys of my life. No matter how old you become, you will always be my little girl. I feel so proud of the person you are and the love and warmth you bring to everyone around you. May God always bless you with good health, endless happiness, peace, and all the love your heart can hold. May the years ahead bring you countless reasons to smile and cherish. You will forever be one of my life's greatest blessings. Love you always, beta! ❤️`},
+{n:"Dad",m:`❤️✨ Happy 50th Birthday to my wonderful wife!\nFifty years of life, and so many beautiful memories we have shared together. You have been my companion, my strength, and an irreplaceable part of my journey. Your grace, kindness, and warmth make our family and our home so special. Through all of life's ups and downs, having you by my side has been a blessing I will always cherish. As you step into this beautiful new chapter, I wish you endless happiness, good health, peace, and all the love you give so generously to others. Here's to many more years of laughter, togetherness, and wonderful memories. Happy birthday, my love! ❤️`},
+{n:"Son",m:`🌸💖 Happy 50th Birthday, Mumma!\nYou are the most special person in my life, and I feel so lucky to have you as my mother. Thank you for always loving me unconditionally, guiding me through every phase of life, and being my biggest source of strength and comfort. Your warmth, kindness, and endless care make everything feel better. No matter how old I grow, I will always need your love, your advice, and your hugs. I hope this milestone brings you all the happiness, love, and beautiful moments you truly deserve. Love you endlessly, Mumma! ❤️`},
+{n:"Vicky",m:`The relationship between me and Rachna cannot be expressed in a single note or on a single day. This whole life since we have known each other every day we have seen this bond getting stronger. We have had fought with each other few times in earlier days but that had only strengthened our bond. I still have each letter and card she had sent me during my college time in Nagpur and they will stay with me throughout my life. I can write pages and pages on our relationship. I wish her a life full of happiness, joy and health on her 50th birthday. May God bless her`},
+{n:"Monika",m:`Happy Birthday, Welcome to the golden 50s, Bhabi! 🥂❤️\n\nThough the number says 50, I hope your heart always stays young, your laughter gets louder, your smile gets brighter, and your life gets more fabulous with every passing year! 💃\n\nOne thing I truly admire about you is the way you dedicate yourself to your children. The love, care, and commitment you pour into them are truly special. ❤️ You have given so much of yourself to making their lives beautiful, and I hope life now gives you countless reasons to celebrate yourself, too!\n\nBeyond being an amazing mother, you are someone I can share laughs, fun, and lovely moments with. May our bond always stay this cheerful, full of masti, laughter, and endless conversations! 🥰❤️\n\nAs you turn 50, I wish you more time for yourself, more pampering, more shopping, more celebrations, and absolutely no compromising on your happiness!`},
+{n:"Neelam",m:`Happy 50th Birthday!\n\nRachna, its been 16 beautiful years of friendship, sharing the little joys of life, picking up our kids, meeting regularly, and creating precious memories together. I will always cherish the warm bond we share. I remember you as the same beautiful person, inside and out.\n\nMay this special milestone bring you endless happiness, good health, love, and laughter. Stay the beautiful soul you have always been! Lots of love and warm wishes! 💐❤️`},
+{n:"Anshu Dubai",m:`Dear Rachna ❤️\nSome friendships have a beautiful way of staying special, no matter where life takes us. From being neighbours in Bhopal to living in different cities, it’s lovely how our bond continues through the years. Our daily good morning messages are a sweet reminder that distance never has to come between friends.\n\nAs you celebrate this beautiful milestone, I wish you all the love, happiness, and good health your heart deserves. May the years ahead be filled with beautiful moments, cherished memories, and everything that makes life truly meaningful.\n\nWishing you a fabulous 50th birthday and a wonderful year ahead! Lots of love and hugs!! ❤️😘🎂`},
+{n:"Minni",m:`Happy 50th Birthday dear Rachna! ❤️🎂 Wishing you good health, happiness, lots of laughter and many more fun-filled kitty get-togethers! Stay blessed and keep shining! 💐🥂`},
+{n:"Rabia",m:`It's been amazing friendship since last three years and u r very helpful with a loving nature .... always there for m whenever I need help from you.\nSo happiest birthday to beautiful lady love you heaps\nStay happys and healthy always God bless you`},
+{n:"Neena",m:`Happy 50th Birthday, Rachna! You are such a lovely person, with so much elegance, grace, and sophistication, yet so warm, friendly, and easy to connect with. One of the nicest things about our bond is how natural and comfortable it feels, and I truly cherish that. You have a beautiful way of making people feel special, and that is what makes you so wonderful. Wishing you lots of happiness, good health, love, and beautiful moments in this new chapter of life. May you always keep shining just the way you do!`},
+{n:"Neeru",m:`Wishing you a very special 50th birthday filled with endless happiness, good health, love, and countless blessings. May this golden milestone mark the beginning of the most beautiful chapter of your life, filled with precious moments, beautiful memories, and dreams coming true.`},
+{n:"Reema",m:`Wishing you a very Happy 50th Birthday! 🎂✨ It is always such a pleasure meeting you and being around your warm, positive energy. 🌸😊 May this milestone year bring you abundant joy, good health, and peace of mind. 💫🌿 Have a wonderful celebration! 🥂🎉`},
+{n:"Seema",m:`Happiest Birthday Rachana on your half century birthday. May God bless you with healthy wealthy life. It is always fun to have your charismatic energy around during kitty parties. Wish you a very happy birthday once again.🎊🎈\nLove Seema💐💐`},
+{n:"Shefali",m:`Happy Birthday, Di! ❤️🎂💕 You are so much more than a sister-in-law to me; you are a sister, a friend, and someone who will always hold a special place in my heart. You have such a beautiful heart, and you deserve all the love, happiness, and magic this world has to offer. May God always keep that beautiful smile on your face, fulfil all your dreams, and bless you with endless happiness, good health, and love. I pray this year brings you countless reasons to smile and everything your heart has been wishing for. Keep shining, keep smiling, and always stay the beautiful person you are ✨ You deserve nothing but the very best, today and always ♥️💗`},
+{n:"Vanita",m:`Happy 50th Birthday, Rachna! ❤️🥳 Although we’ve met only a few times, it’s always been such a pleasure meeting you. I still remember how I used to tease you for never showing up at our kitty parties! 😂 You have such a warm and lovely nature, and it always feels so nice whenever we meet. Wishing you lots of happiness, good health, love and beautiful memories in the years ahead. And now that you’re turning 50, I hope you’ll finally start attending our kitties more often! No more excuses! 😂❤️ Have a wonderful birthday and keep smiling always! 🥰`},
+{n:"Ahanah",m:`Happy happy birthday auntyyy you’re like a second mother to me I miss you love you so so much ( especially apke veg kulche😈😈😈) Prisha se zyada maza toh mujhe apke sath aata hai🤘🥰 I’ll always cherish your presence in my life aunty. Happy birthday once again I hope you stay as pretty as you are today and age like fine wine. Lots of love ❤️❤️😘`}
+],
+ bq:Array.from({length:8},(_,i)=>({n:"[Name "+(i+1)+"]",f:["💐","🌷","🌹","🌻","🌸","🌺","🌼","🏵️"][i],m:"[A message that comes with this bouquet.]"}))
+};
+/* ===== engine ===== */
+const $=(s,e=document)=>e.querySelector(s),reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const cols=['#fff4dc','#ffe48a','#ffc9d4','#c8f0dc','#cfe6ff','#e3d4ff'];
+let snd=false,AC;
+function beep(f=520,d=.12,t='triangle'){if(!snd||!AC)return;const o=AC.createOscillator(),g=AC.createGain();o.type=t;o.frequency.value=f;g.gain.value=.08;g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+d);o.connect(g);g.connect(AC.destination);o.start();o.stop(AC.currentTime+d)}
+$('#snd').onclick=e=>{e.stopPropagation();snd=!snd;if(snd){AC=AC||new(window.AudioContext||window.webkitAudioContext)();beep(660)}e.target.textContent=snd?'sound is on (tap to mute)':'tap to turn on sound'};
+function el(h){const t=document.createElement('div');t.innerHTML=h.trim();return t.firstChild}
+function fxLayer(){const f=$('#fx');f.innerHTML='';const em=[['🎈','up',8],['⭐','up',7],['★','up',5]];
+ if(cur>1&&cur!=8)return;
+ for(let i=0;i<14;i++){const [c,k,n]=em[i%3];f.append(el(`<i class="${k}" style="left:${Math.random()*95}%;top:${100+Math.random()*20}vh;font-size:${20+Math.random()*22}px;animation-duration:${16+Math.random()*14}s;animation-delay:-${Math.random()*20}s;color:${i%3?'#ffe48a':'#fff'}">${c}</i>`))}
+ for(let i=0;i<16;i++)f.append(el(`<i class="dn" style="left:${Math.random()*100}%;width:8px;height:12px;background:${cols[i%6]};animation-duration:${6+Math.random()*6}s;animation-delay:-${Math.random()*9}s"></i>`))}
+function burst(x,y,n=14){if(reduce)n=5;const doodles=['✿','♥','☺','~','✦','☾'];
+ for(let i=0;i<n;i++){const a=Math.random()*6.28,r=40+Math.random()*70,e=el(`<i style="position:fixed;left:${x}px;top:${y}px;z-index:90;pointer-events:none;font-style:normal;font-size:${12+Math.random()*14}px;color:${cols[i%6]};transition:transform .8s cubic-bezier(.1,.8,.3,1),opacity .8s">${i%3==0?'★':i%3==1?doodles[i%6]:'■'}</i>`);
+  document.body.append(e);requestAnimationFrame(()=>{e.style.transform=`translate(${Math.cos(a)*r}px,${Math.sin(a)*r+20}px) rotate(${r*5}deg)`;e.style.opacity=0});setTimeout(()=>e.remove(),900)}}
+function stampAt(x,y,ch){const s=el(`<div class="stamp" style="left:${x-28}px;top:${y-28}px">${ch}</div>`);document.body.append(s);setTimeout(()=>s.remove(),2500)}
+addEventListener('pointerdown',e=>{if(e.target.closest('input,textarea,[contenteditable],.knife'))return;burst(e.clientX,e.clientY);beep(400+Math.random()*400,.08)},{passive:true});
+function modal(h){const m=el(`<div class="mod"><div class="paper"><div class="tape"></div><button class="x" aria-label="close">✕</button>${h}</div></div>`);
+ const close=()=>m.remove();m.onclick=e=>{if(e.target===m||e.target.classList.contains('x'))close()};document.body.append(m);beep(300,.15);return m}
+/* ===== pages ===== */
+const P=[];let cur=0;
+const bunting='<div class="bunt">'+Array.from({length:14},(_,i)=>`<b style="background:${['#fff4dc','#ffe48a','#ffc9d4','#c8f0dc'][i%4]}"></b>`).join('')+'</div>';
+const letters=t=>[...t].map((c,i)=>c==' '?' ':`<span style="animation-delay:${i*.09}s">${c}</span>`).join('');
+P[0]=`${bunting}<h1 class="title" aria-label="Happy Birthday">${letters('HAPPY BIRTHDAY!')}</h1><div class="name hand">${D.name}</div>
+<p class="hand" style="font-size:26px;margin:4px 0 22px">a little red scrapbook, just for you</p>
+<button class="btn pulse" id="go">LET THE SURPRISE BEGIN!</button>
+
+<span class="stk" style="left:12%;top:58%;transform:rotate(-14deg)">🎀</span><span class="stk" style="right:10%;top:64%;transform:rotate(12deg)">🍒</span><span class="stk" style="left:70%;top:16%;transform:rotate(8deg)">☺</span>
+<button class="stk wig" id="bd" aria-label="birthday sticker" style="left:8px;bottom:80px;font-size:40px">🎂</button>`;
+P[1]=`<h1 class="title" style="font-size:44px">MAKE A WISH!</h1>
+<div class="cakebox" id="cb"><div id="cake" class="half">${cakeSvg()}</div></div>
+<div class="paper" style="max-width:320px;margin:10px auto" id="wc"><div class="tape"></div><textarea rows="2" id="wish" placeholder="Type your birthday wish…" aria-label="your wish"></textarea><div style="margin-top:12px"><button class="btn" id="blow">BLOW IT OUT</button></div></div>
+<h2 id="inst" style="display:none;font-size:34px;color:var(--sun);margin-top:14px">DRAG TO CUT THE CAKE!</h2>`;
+function cakeSvg(){return `<svg viewBox="0 0 260 250" width="260" height="250" aria-hidden="true">
+<rect x="20" y="170" width="220" height="64" rx="10" fill="#c41228"/><path d="M20 176h220v10c-10 12-14-4-24 8s-14-8-26 6-14-10-26 4-14-8-26 6-14-10-26 4-14-8-26 6-14-8-24 2z" fill="#fff"/>
+<rect x="55" y="120" width="150" height="56" rx="10" fill="#d6182f"/><path d="M55 126h150v8c-8 10-12-4-22 8s-14-6-24 6-14-8-24 4-14-6-24 6-12-6-32 2z" fill="#fff"/>
+<rect x="85" y="76" width="90" height="48" rx="10" fill="#e8283f"/><path d="M85 82h90v8c-6 9-10-3-18 7s-12-6-20 5-12-6-20 4-12-4-32 0z" fill="#fff"/>
+${[100,130,160].map((x,i)=>`<rect x="${x-3}" y="46" width="6" height="30" fill="${['#ffe48a','#cfe6ff','#c8f0dc'][i]}" stroke="#fff" stroke-width="1"/><path class="flame" d="M${x} 28c7 8 6 15 0 18-6-3-7-10 0-18z" fill="#ffb41f"/>`).join('')}
+${[[100,174],[160,172],[120,118],[185,118],[130,70]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="7" fill="#7a0010"/><circle cx="${x-2}" cy="${y-2}" r="2" fill="#fff"/>`).join('')}
+${Array.from({length:22},(_,i)=>`<rect x="${40+(i*37)%180}" y="${185+(i*23)%40}" width="7" height="2.5" fill="${cols[i%6]}" transform="rotate(${i*40} ${40+(i*37)%180} ${185+(i*23)%40})"/>`).join('')}
+<ellipse cx="130" cy="238" rx="120" ry="8" fill="#0003"/></svg>`}
+P[2]=`<h1 class="title" style="font-size:40px;margin-top:20px">A Little Birthday Letter</h1><p class="hand" style="font-size:22px">tap the letter ☟</p>
+<div class="letter" id="let"><div class="paper"><div class="tape"></div><div class="hand" style="font-size:26px;color:var(--red)">✉ a note for you ☺ ★</div><div class="lbody">${D.letter.map(l=>`<p>${l}</p>`).join('')}<p style="text-align:center">★ ☺ ✿ ~ ♥ ✦</p></div></div></div>
+<button class="btn" id="save" style="opacity:.0" tabindex="-1">SAVE THIS NOTE</button><div style="margin-top:26px"><button class="small" onclick="show(6)">want some special notes?</button></div>`;
+P[3]=`<h1 class="title" style="font-size:38px">Little Things Worth Remembering</h1>
+<div class="sb">
+${D.stars.map((s,i)=>`<button class="paper c${i+1}" data-m="${s}"><span class="ori">✦</span></button>`).join('')}
+<div class="tabw paper" style="padding:0;grid-column:1/-1;cursor:pointer" id="tab"><div class="tabn hand">${D.tab} &nbsp;☞ pull</div></div>
+<button class="paper c4" data-m="${D.env4}">💌<br>tap me</button>
+<button class="paper c5 fold" id="cor"><span>${'lift the corner'}</span></button>
+<div class="layers"><button class="paper" id="lay" style="width:100%;border:0;font-family:inherit;font-size:22px;color:var(--ink);padding:24px;cursor:pointer;background:repeating-linear-gradient(135deg,#fff4dc 0 10px,#ffeccc 10px 20px)">✂ tap to unfold the big surprise</button></div></div>`;
+P[4]=`<h1 class="title" style="font-size:38px">Moments Worth Keeping</h1><p class="hand" style="font-size:20px">placeholders only — add your own photos and illustrations</p>
+<div class="sb">${D.mems.map((m,i)=>`<button class="mem" data-i="${i}" style="transform:rotate(${[-2,2,1.5,-1.5][i]}deg)"><div class="ph">[photo or illustration ${m.i}]</div><b class="hand" style="font-size:22px">${m.t}</b><div>${m.c}</div></button>`).join('')}</div>`;
+P[5]=`<h1 class="title" style="font-size:44px;margin-top:20px">${D.playlistTitle}</h1><p class="hand" style="font-size:22px">a mixtape for you ♪</p>
+<div class="paper" style="max-width:340px;margin:16px auto 22px;transform:rotate(-1.5deg)"><div class="tape"></div><div style="background:var(--red);color:var(--cream);padding:14px;border-radius:4px;border:3px dashed #fff6;text-align:left"><div class="hand" style="font-size:26px">side A ♪ ♫ ♬</div><ol class="tr">${D.tracks.map(t=>`<li>${t}</li>`).join('')}</ol></div><p class="hand" style="font-size:21px;text-align:center;margin:12px 0 0">music says what words can’t ♡</p></div><a class="btn" style="display:inline-block;text-decoration:none" href="${D.playlistUrl}" target="_blank" rel="noopener">▶ PLAY THE PLAYLIST</a>`;
+P[6]=`<h1 class="title" style="font-size:44px;margin-top:20px">Open When…</h1><p class="hand" style="font-size:20px">tap an envelope — one at a time</p>
+<div class="env">${D.open.map((e,i)=>`<button class="ev" data-i="${i}" style="transform:rotate(${[-2,1.5,-1,2,-1.5][i%5]}deg)"><span>${e.n}</span></button>`).join('')}</div>`;
+P[7]=`<h1 class="title" style="font-size:44px;margin-top:20px">Bouquets 💐</h1><p class="hand" style="font-size:20px">tap a bouquet — one at a time</p>
+<div class="env" style="grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(4,auto)">${D.bq.map((e,i)=>`<button class="bq" data-i="${i}" style="transform:rotate(${[-2,1.5,-1,2][i%4]}deg)"><span class="fl">${e.f}</span><span>${e.n}</span></button>`).join('')}</div>`;
+P[8]=`<div style="min-height:80vh;display:grid;place-content:center;gap:10px"><h1 class="title" style="font-size:clamp(40px,13vw,72px)">happy birthday once again</h1><div class="name hand" style="margin:0">mumma</div><div style="font-size:56px">❤️</div></div>`;
+function show(n){cur=n;const a=$('#app');a.innerHTML=`<section class="pg on">${P[n]}</section>`;a.firstChild.scrollTop=0;fxLayer();
+ [...$('#nav').children].forEach((b,i)=>b.classList.toggle('on',i==ORDER.indexOf(n)));wire(n)}
+const ORDER=[0,1,2,5,6,8];
+$('#nav').innerHTML=Array.from({length:6},(_,i)=>`<button aria-label="page ${i+1}">${i+1}</button>`).join('');
+[...$('#nav').children].forEach((b,i)=>b.onclick=()=>show(ORDER[i]));
+const shakeIt=()=>{if(reduce)return;document.body.classList.add('shake');setTimeout(()=>document.body.classList.remove('shake'),400)};
+function wire(n){const g=s=>$(s);
+ if(n==0){g('#bd').onclick=e=>{e.stopPropagation();const r=e.currentTarget.getBoundingClientRect();stampAt(40+Math.random()*(innerWidth-80),innerHeight*.3+Math.random()*innerHeight*.4,['🎂','🎉','🥳'][Math.random()*3|0]);beep(700,.2)};
+  g('#go').onclick=e=>{e.stopPropagation();const b=el('<div class="big"><div>🎂 BIRTHDAY!</div></div>'),p=el('<div class="pop">SURPRISE!</div>');document.body.append(b,p);shakeIt();burst(innerWidth/2,innerHeight/2,40);beep(880,.4,'square');setTimeout(()=>{b.remove();p.remove();show(1)},1700)}}
+ if(n==1){const w=g('#wish');g('#blow').onclick=e=>{e.stopPropagation();const t=w.value.trim()||'my wish';g('#cb').classList.add('out');const r=g('#cb').getBoundingClientRect();
+   for(let i=0;i<3;i++)g('#cb').append(el(`<i class="smoke" style="left:${95+i*30}px;top:20px;animation-delay:${i*.2}s">☁</i>`));
+   const ps=el('<div class="pstar">⭐</div>');ps.style.left=(innerWidth/2-23)+'px';ps.style.top=(innerHeight*.7)+'px';document.body.append(ps);setTimeout(()=>ps.remove(),2500);
+   g('#wc').style.display='none';beep(300,.3,'sine');setTimeout(startCut,1400)};
+  function startCut(){g('#inst').style.display='block';const cb=g('#cb'),k=el('<div class="knife" role="img" aria-label="cake knife">🔪<span style="position:absolute;font-size:22px;right:-12px;top:8px">🎀</span></div>'),L=el('<div class="cutline"></div>');cb.append(L,k);
+   let sx,sy,d=false,H=cb.clientHeight;
+   k.onpointerdown=e=>{d=true;sx=e.clientX;sy=e.clientY;k.setPointerCapture(e.pointerId)};
+   k.onpointermove=e=>{if(!d)return;const dy=Math.max(0,e.clientY-sy);k.style.top=(-30+Math.min(dy,H))+'px';L.style.height=Math.min(dy,H)+'px';beep(200+dy,.04,'sawtooth')};
+   k.onpointerup=e=>{if(!d)return;d=false;const dx=e.clientX-sx,dy=e.clientY-sy;
+    if(dy>50&&dy>Math.abs(dx)*.8)doCut(k,L);else{g('#cake').classList.remove('wob');void g('#cake').offsetWidth;g('#cake').classList.add('wob');k.style.top='-30px';L.style.height=0}}}
+  function doCut(k,L){const cb=g('#cb'),c=g('#cake');k.remove();L.remove();const a=c.cloneNode(true),b=c.cloneNode(true);a.removeAttribute('id');b.removeAttribute('id');
+   a.style.clipPath='inset(0 50% 0 0)';b.style.clipPath='inset(0 0 0 50%)';c.replaceWith(a);cb.append(b);
+   requestAnimationFrame(()=>{a.style.transform='translateX(-70px) rotate(-6deg)';b.style.transform='translateX(70px) rotate(6deg)'});
+   burst(innerWidth/2,innerHeight*.45,40);beep(900,.3);setTimeout(()=>show(2),1500)}}
+ if(n==2){const l=g('#let'),s=g('#save');l.onclick=()=>{if(l.classList.contains('open'))return;l.classList.add('open');beep(500,.2);
+   [...l.querySelectorAll('.lbody p')].forEach((p,i)=>p.style.transitionDelay=(.3+i*.35)+'s');s.style.opacity=1;s.tabIndex=0;s.style.transition='opacity 1s .8s'};
+  s.onclick=e=>{e.stopPropagation();const r=l.getBoundingClientRect();stampAt(r.left+r.width*(.3+Math.random()*.4),r.top+r.height*.6,'⭐');beep(800,.2)}}
+ if(n==3){document.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{const o=b.querySelector('.ori');if(o)o.classList.add('o');modal(`<span class="hand" style="font-size:28px;color:var(--red)">✦ unfolded!</span><p>${b.dataset.m}</p>`)});
+  g('#tab').onclick=e=>{e.currentTarget.classList.toggle('pulled');beep(350,.2)};
+  g('#cor').onclick=e=>{const c=e.currentTarget;c.classList.add('lift');c.innerHTML=`<span>${D.corner}</span>`;beep(500,.15)};
+  let st=0;g('#lay').onclick=e=>{const b=e.currentTarget;b.textContent=D.fold[Math.min(st,3)];b.style.fontSize=st>=3?'26px':'20px';b.style.transform=`scaleY(${1+st*.04}) rotate(${st%2?1:-1}deg)`;beep(300+st*150,.15);if(st>=3)burst(innerWidth/2,innerHeight/2);st++}}
+ if(n==4)document.querySelectorAll('.mem').forEach(b=>b.onclick=()=>{const m=D.mems[b.dataset.i];
+  const sec=['What happened','The funniest or most memorable part','Little details worth remembering','What made it special','A favourite quote or conversation (optional)'];
+  modal(`<div class="hand" style="font-size:28px;color:var(--red)">${m.t}</div><div class="ph" style="height:90px">[photo or illustration — add yours]</div>${sec.map(s=>`<b>${s}</b><div contenteditable="true">[write here]</div>`).join('')}`)});
+ if(n==5)document.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>{const s=D.say[b.dataset.i];
+  if(!s.mix)return modal(`<div class="hand" style="font-size:26px;color:var(--red)">${s.o}</div><p>${s.m}</p>`);
+  const m=modal(`<div class="hand" style="font-size:30px;color:var(--red);text-align:center">🎧 ${D.playlistTitle}</div><div style="background:var(--red);color:var(--cream);padding:12px;border-radius:4px;transform:rotate(-1deg);border:3px solid #fff4;margin:8px 0"><div class="hand" style="font-size:22px">side A ♪ ♫</div><ol class="tr">${D.tracks.map(t=>`<li>${t}</li>`).join('')}</ol></div><div style="text-align:center"><a class="btn" style="display:inline-block;text-decoration:none;font-size:20px" href="${D.playlistUrl}" target="_blank" rel="noopener">▶ PLAY THE PLAYLIST</a><p style="font-size:15px">[Swap the link in the data section, or paste an embed player.]</p></div>`);burst(innerWidth/2,innerHeight/2,30)});
+ if(n==7)document.querySelectorAll('.bq').forEach(b=>b.onclick=()=>{const e=D.bq[b.dataset.i];document.querySelectorAll('.mod').forEach(x=>x.remove());modal(`<div class="hand" style="font-size:26px;color:var(--red)">${e.f} ${e.n} ♡</div><p>${e.m}</p>`)});
+ if(n==6)document.querySelectorAll('.ev').forEach(b=>b.onclick=()=>{const e=D.open[b.dataset.i];
+  document.querySelectorAll('.mod').forEach(x=>x.remove());modal(`<div class="hand" style="font-size:26px;color:var(--red)">${e.n} ♡</div><p>${e.m}</p>`)})}
+show(0);
+</script></body></html>
